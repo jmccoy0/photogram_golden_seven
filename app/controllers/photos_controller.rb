@@ -45,7 +45,11 @@ def update_row
 end
 
 def destroy_row
-  render("photos/destroy_row.html.erb")
+  photo = Photo.find(params[:id])
+  photo.destroy
+  
+  # render("photos/destroy_row.html.erb")
+  redirect_to("/photos")
 end
 
 end
