@@ -27,12 +27,21 @@ def show
 end
 
 def edit_form
-  @the_id = params[:da_id]
-  render("photos/edit_form.html.erb")
+  @photo = Photo.find(params[:id])
+  # @the_id = params[:da_id]
+  # render("photos/edit_form.html.erb")
 end
 
 def update_row
-  render("photos/update_row.html.erb")
+  @photo = Photo.find(params[:id])
+
+  @photo.caption = params[:caption]
+  @photo.source = params[:source]
+
+  @photo.save
+
+  # render("photos/update_row.html.erb")
+  redirect_to("/photos/#{@photo.id}")
 end
 
 def destroy_row

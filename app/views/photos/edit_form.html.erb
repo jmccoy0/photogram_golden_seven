@@ -1,1 +1,15 @@
-<h1>Edit Photo <%= @da_id %></h1>
+<h1>Edit Photo <%= @the_id %></h1>
+
+<form action="/update_photo/<%= @photo.id %>">
+  <div>
+    <label for="src">Image URL</label>
+    <input id="src" type="text" name="source" placeholder="www.example.com" value="<%= @photo.source %>">
+  </div>
+  <div>
+    <label for="cap">Caption</label>
+    <input id="cap" type="text" name="caption" placeholder="Picture of..." value="<%= @photo.caption %>">
+  </div>
+  <div>
+    <button>Update Photo</button>
+  </div>
+</form>
